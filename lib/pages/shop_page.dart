@@ -16,6 +16,13 @@ class _ShopPageState extends State<ShopPage> {
   //add to cart function
   void addToCart(Coffee coffee) {
     Provider.of<CoffeeShop>(context, listen: false).addItemToCart(coffee);
+
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text("Successfully added to cart"),
+      ),
+    );
   }
 
   @override

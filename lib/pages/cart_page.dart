@@ -1,6 +1,5 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mocha_market/components/coffee_tile.dart';
 import 'package:mocha_market/models/coffee.dart';
 import 'package:mocha_market/models/coffee_shop.dart';
@@ -18,6 +17,8 @@ class _CartPageState extends State<CartPage> {
     Provider.of<CoffeeShop>(context as BuildContext, listen: false)
         .removeItemFromCart(coffee);
   }
+
+  void payNow() {}
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,25 @@ class _CartPageState extends State<CartPage> {
                                 onPressed: () => removeFromCart(eachCoffee),
                                 icon: const Icon(Icons.delete));
                           }),
+                    ),
+
+                    //pay button
+                    GestureDetector(
+                      onTap: payNow,
+                      child: Container(
+                        padding: const EdgeInsets.all(25),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.brown,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Pay Now",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                     )
                   ],
                 ),
